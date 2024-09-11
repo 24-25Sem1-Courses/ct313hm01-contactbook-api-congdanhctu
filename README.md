@@ -11,4 +11,3 @@ Student ID: B2111917
 Student Name: Pham Cong Danh
 
 Class Number: M01
-
