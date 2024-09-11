@@ -45,7 +45,6 @@ module.exports.setup = (app) => {
    *                       items:
    *                         $ref: '#/components/schemas/Contact'
    */
-
   router.get("/", contactsController.getContactsByFilter);
   /**
    * @swagger
