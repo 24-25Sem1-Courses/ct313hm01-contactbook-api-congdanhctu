@@ -15,7 +15,7 @@ function getContactsByFilter(req, res) {
   return res.json(
     JSend.success({
       contacts: [],
-    })
+    }),
   );
 }
 function getContact(req, res) {
