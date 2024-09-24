@@ -50,6 +50,10 @@ module.exports.setup = (app) => {
    *                         $ref: '#/components/schemas/Contact'
    *                     metadata:
    *                       $ref: '#/components/schemas/PaginationMetadata'
+   *       404:
+   *         $ref: '#/components/responses/NotFound'
+   *       500:
+   *         $ref: '#/components/responses/InternalServerError'
    */
   router.get("/", contactsController.getContactsByFilter);
   /**
@@ -83,6 +87,10 @@ module.exports.setup = (app) => {
    *                   properties:
    *                     contact:
    *                       $ref: '#/components/schemas/Contact'
+   *       400:
+   *         $ref: '#/components/responses/BadRequest'
+   *       500:
+   *         $ref: '#/components/responses/InternalServerError'
    */
   router.post("/", avatarUpload, contactsController.createContact);
   /**
@@ -97,6 +105,8 @@ module.exports.setup = (app) => {
    *        200:
    *          description: All contacts deleted
    *          $ref: '#/components/responses/200NoData'
+   *        500:
+   *          $ref: '#/components/responses/InternalServerError'
    */
   router.delete("/", contactsController.deleteAllContacts);
   router.all("/", methodNotAllowed);
@@ -128,6 +138,10 @@ module.exports.setup = (app) => {
    *                   properties:
    *                     contact:
    *                       $ref: '#/components/schemas/Contact'
+   *       404:
+   *         $ref: '#/components/responses/NotFound'
+   *       500:
+   *         $ref: '#/components/responses/InternalServerError'
    */
   router.get("/:id", contactsController.getContact);
 
@@ -164,6 +178,12 @@ module.exports.setup = (app) => {
    *                   properties:
    *                     contact:
    *                       $ref: '#/components/schemas/Contact'
+   *       400:
+   *         $ref: '#/components/responses/BadRequest'
+   *       404:
+   *         $ref: '#/components/responses/NotFound'
+   *       500:
+   *         $ref: '#/components/responses/InternalServerError'
    */
   router.put("/:id", avatarUpload, contactsController.updateContact);
 
@@ -181,6 +201,10 @@ module.exports.setup = (app) => {
    *         200:
    *           description: Contact deleted
    *           $ref: '#/components/responses/200NoData'
+   *         404:
+   *          $ref: '#/components/responses/NotFound'
+   *         500:
+   *          $ref: '#/components/responses/InternalServerError'
    */
   router.delete("/:id", contactsController.deleteContact);
   router.all("/:id", methodNotAllowed);

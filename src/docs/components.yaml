@@ -79,6 +79,45 @@ components:
                 nullable: true
                 default: null
                 description: The response data
+    'NotFound':
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: error
+              message:
+                type: string
+                example: Resource not found
+    'BadRequest':
+      description: Bad request due to invalid input
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: error
+              message:
+                type: string
+                example: Invalid input provided
+    'InternalServerError':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                example: error
+              message:
+                type: string
+                example: Something went wrong on the server         
 
   parameters:
     contactIdParam:
